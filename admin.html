@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nawah Token Admin Interface</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f0f0f0;
+      direction: rtl;
+    }
+    h2, h3 {
+      color: #333;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      background-color: #ffd700;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px;
+      margin-top: 5px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">واجهة إدارة نواة توكن (Nawah Token)</h2>
+
+  <div class="section">
+    <p><strong>المحفظة المتصلة:</strong> <span id="account">-</span></p>
+    <p><strong>الرصيد:</strong> <span id="balance">-</span> NAWAH</p>
+  </div>
+
+  <div class="section">
+    <h3>🔥 حرق التوكن</h3>
+    <input id="burnAmount" type="number" placeholder="الكمية المراد حرقها" />
+    <button onclick="burnTokens()">تنفيذ الحرق</button>
+  </div>
+
+  <div class="section">
+    <h3>⛔ إيقاف / تفعيل العقد</h3>
+    <button onclick="pauseContract()">إيقاف العقد مؤقتًا</button>
+    <button onclick="unpauseContract()">تشغيل العقد</button>
+  </div>
+
+  <div class="section">
+    <h3>🔁 إرسال التوكن</h3>
+    <input id="transferTo" type="text" placeholder="عنوان المستلم" />
+    <input id="transferAmount" type="number" placeholder="كمية التوكن" />
+    <button onclick="transferTokens()">إرسال</button>
+  </div>
+
+  <script>
+    const contractAddress = "0x000000000000000000000000000000000000dEaD"; // ← استبدله لاحقًا بالعقد الرسمي
+    const contractABI = [
+      { "inputs": [], "name": "pause", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+      { "inputs": [], "name": "unpause", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+      { "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+      { "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" },
+      { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
+      { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" }
+    ];
+
+    let account;
+    let nawToken;
+
+    async function connect() {
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        await ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await web3.eth.getAccounts();
+        account = accounts[0];
+        document.getElementById("account").innerText = account;
+        nawToken = new web3.eth.Contract(contractABI, contractAddress);
+        updateBalance();
+      } else {
+        alert("يرجى تثبيت MetaMask.");
+      }
+    }
+
+    async function updateBalance() {
+      const balance = await nawToken.methods.balanceOf(account).call();
+      const decimals = await nawToken.methods.decimals().call();
+      const formatted = balance / 10 ** decimals;
+      document.getElementById("balance").innerText = formatted.toLocaleString();
+    }
+
+    async function burnTokens() {
+      const amount = document.getElementById("burnAmount").value;
+      const decimals = await nawToken.methods.decimals().call();
+      const raw = web3.utils.toBN(amount * 10 ** decimals);
+      await nawToken.methods.burn(raw).send({ from: account });
+      updateBalance();
+    }
+
+    async function pauseContract() {
+      await nawToken.methods.pause().send({ from: account });
+      alert("تم إيقاف العقد مؤقتًا.");
+    }
+
+    async function unpauseContract() {
+      await nawToken.methods.unpause().send({ from: account });
+      alert("تم إعادة تشغيل العقد.");
+    }
+
+    async function transferTokens() {
+      const to = document.getElementById("transferTo").value;
+      const amount = document.getElementById("transferAmount").value;
+      const decimals = await nawToken.methods.decimals().call();
+      const raw = web3.utils.toBN(amount * 10 ** decimals);
+      await nawToken.methods.transfer(to, raw).send({ from: account });
+      updateBalance();
+    }
+
+    window.onload = connect;
+  </script>
+</body>
+</html>
