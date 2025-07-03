@@ -1,4 +1,30 @@
-# # Nawah Whitepaper – Civilization Through Innovation
+
+## <!-- الحالة التقنية لبناء المشروع -->
+![Build](https://img.shields.io/github/actions/workflow/status/nortoken/nawah-token-ui/ci.yml?label=build)
+
+<!-- الرخصة -->
+![License](https://img.shields.io/github/license/nortoken/nawah-token-ui)
+
+<!-- لغة البرمجة الأساسية -->
+![Top Language](https://img.shields.io/github/languages/top/nortoken/nawah-token-ui)
+
+<!-- حجم الكود -->
+![Repo Size](https://img.shields.io/github/repo-size/nortoken/nawah-token-ui)
+
+<!-- تاريخ آخر تحديث -->
+![Last Commit](https://img.shields.io/github/last-commit/nortoken/nawah-token-ui)
+
+<!-- حالة الإصدار (إن كنت تستخدم npm مثلاً) -->
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+
+
+
+Nawah Whitepaper – Civilization Through Innovation
+
+
+<!-- شارة متخصصة لمشروع نواة -->
+![Nawah](https://img.shields.io/badge/Powered%20by-Nawah%20Token-F9A825?style=for-the-badge)
+
 
 ---
 
