@@ -1,0 +1,20 @@
+{
+  "name": "nawah-token",
+  "version": "1.0.0",
+  "description": "Smart contracts and deployment scripts for Nawah Token (NWTK)",
+  "main": "hardhat.config.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network bsctestnet",
+    "test": "npx hardhat test",
+    "clean": "npx hardhat clean"
+  },
+  "author": "Nawah Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.8.1",
+    "hardhat": "^2.22.1"
+  }
+}
