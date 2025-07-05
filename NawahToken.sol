@@ -101,5 +101,4 @@ contract NawahToken is Initializable, ERC20Upgradeable, OwnableUpgradeable {
     }
 }
 
-add: NawahToken.sol smart contract
-
+// add: NawahToken.sol
