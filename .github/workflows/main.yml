@@ -1,0 +1,71 @@
+name: Nawah Token CI + SLSA Provenance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build-and-test:
+    name: 🛠️ Build & Test Contracts
+    runs-on: ubuntu-latest
+
+    outputs:
+      digests: ${{ steps.hash.outputs.digests }}
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧱 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🧪 Compile contracts
+        run: |
+          if [ -f package.json ] && grep -q '"compile"' package.json; then
+            npm run compile
+          else
+            echo "No compile script found in package.json"
+          fi
+
+      - name: 🧪 Run tests
+        run: |
+          if [ -f package.json ] && grep -q '"test"' package.json; then
+            npm test
+          else
+            echo "No test script found in package.json"
+          fi
+
+      - name: 🔐 Generate subject for SLSA provenance
+        id: hash
+        run: |
+          set -euo pipefail
+          files=$(ls -1 | grep -E '\.(js|ts|json|sol)$' || true)
+          if [ -n "$files" ]; then
+            echo "digests=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+          else
+            echo "No build artifacts to hash"
+            echo "digests=" >> "${GITHUB_OUTPUT}"
+          fi
+
+  provenance:
+    name: 🧾 Generate SLSA Provenance
+    needs: build-and-test
+    if: ${{ needs.build-and-test.outputs.digests != '' }}
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
+    with:
+      base64-subjects: "${{ needs.build-and-test.outputs.digests }}"
+      upload-assets: true
