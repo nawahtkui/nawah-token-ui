@@ -79,6 +79,62 @@ Nawah is not merely a digital token — it is a cultural, economic, and technolo
 * Organize digital events on Instagram, TikTok, and YouTube
 
 ---
+##
+### 🔄 Initial Liquidity Provision and Locking
+
+To ensure a stable and trustworthy launch of Nawah Token (NWTK), an initial liquidity provision will be allocated and deployed on decentralized exchanges, primarily PancakeSwap.
+
+The preliminary price reference is defined as:
+- **1 NWTK ≈ 0.60 USDT**
+
+The first trading pair to be launched:
+- **NWTK / USDT** or **NWTK / BNB**
+
+An initial liquidity pool of:
+- **100,000 NWTK + 60,000 USDT (or equivalent in BNB)**  
+will be locked and made available to the public.
+
+To secure investor trust and market stability:
+- **Liquidity will be locked** for a minimum period of 6 months using reputable tools such as **Pinksale** or **Team.Finance**.
+- Liquidity management will be handled through a **Multi-Signature Wallet** to ensure governance transparency.
+- The contract owner may optionally execute `renounceOwnership()` to further decentralize control after deployment and market stabilization.
+
+---
+
+## ⚖️ Price Volatility and Trading Pairs Stability
+
+When providing liquidity for the trading pair `NWTK / BNB`, it is important to note that BNB's price fluctuates continuously against stablecoins like USDT or BUSD.  
+This fluctuation directly affects the relative value of NWTK in terms of BNB, meaning the price of NWTK in BNB can rise or fall depending on BNB's market price.
+
+To reduce the impact of BNB price volatility and provide greater market stability, it is also recommended to add stable trading pairs such as:
+
+- `NWTK / USDT`  
+- or `NWTK / BUSD`  
+
+Stablecoins like USDT and BUSD provide a relatively stable price, which helps to:
+
+- Provide a consistent price reference for the token  
+- Attract traders who prefer price stability  
+- Reduce risks of large market fluctuations  
+
+Thus, combining trading pairs `NWTK / BNB` and `NWTK / BUSD` creates a more stable trading environment and improves long-term token liquidity.
+
+---
+
+## 🚀 From Token to Native Coin: Nawah Blockchain Roadmap
+
+Nawah Token (NWTK) is currently deployed as a BEP-20 token on the Binance Smart Chain (BSC).  
+As part of the long-term vision, Nawah plans to transition from a token to a native coin on its own blockchain — **NawahChain**.
+
+This transition will involve:
+
+- Building a dedicated blockchain network using technologies such as **BSC Fork**, **Substrate**, or **Cosmos SDK** to ensure scalability, decentralization, and enhanced governance.
+- Launching a **Bridge** to allow seamless conversion of existing NWTK tokens to native coins on NawahChain at a fixed ratio (e.g., 1:1).
+- Distributing native coins fairly to current token holders, ensuring transparency and community trust.
+- Deploying the NawahChain mainnet with support for decentralized governance, NFTs, and Web3 functionalities.
+- Gradually phasing out the BEP-20 token contract or freezing its supply to avoid duplication.
+
+This strategic evolution empowers Nawah with full control over its ecosystem, enabling innovative features and stronger community engagement aligned with its vision of cultural empowerment and Web3 inclusion.
 
 ## ✅ Conclusion
 
