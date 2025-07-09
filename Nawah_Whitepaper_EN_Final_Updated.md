@@ -64,6 +64,21 @@ Use these details:
 - Two-Factor Authentication (2FA)
 - Ongoing penetration testing
 
+---
+
+### Security and Risks
+
+The **Nawah Token (NWTK)** smart contract is designed as an upgradeable contract, enabling future enhancements and optimizations without compromising stored data or disrupting service.
+
+To maintain the integrity and reliability of the contract during upgrades, strict adherence to **storage compatibility** is essential. This involves preserving the order and types of existing storage variables, avoiding deletions or rearrangements, and appending any new variables only at the end of the storage layout.
+
+Comprehensive testing protocols are conducted prior to deployment of any updates to ensure stability and security.
+
+This disciplined upgrade approach guarantees the long-term trustworthiness and robustness of the Nawah ecosystem, providing confidence for users, developers, and investors alike.
+
+---
+
+
 ### Governance Model
 - Token holders vote on proposals
 - Ownership renouncement post-launch for decentralization
