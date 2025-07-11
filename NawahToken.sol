@@ -63,7 +63,7 @@ contract NawahToken is ERC20, Ownable {
     }
 
     /**
-     * @dev Lock tokens for a user for a certain duration
+     * @dev Lock tokens for a user for a certain duration (seconds)
      */
     function lockTokens(address user, uint256 timeInSeconds) external onlyOwner {
         unlockTime[user] = block.timestamp + timeInSeconds;
@@ -72,18 +72,22 @@ contract NawahToken is ERC20, Ownable {
     /**
      * @dev Transfer override with fee and lock check
      */
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override {
-        if (from != address(0)) {
-            require(block.timestamp >= unlockTime[from], "Tokens are locked");
-        }
-        super._beforeTokenTransfer(from, to, amount);
-    }
-
     function _transfer(address sender, address recipient, uint256 amount) internal override {
-        uint256 fee = (amount * transferFeePercent) / 100;
+        require(sender != address(0), "ERC20: transfer from the zero address");
+        require(recipient != address(0), "ERC20: transfer to the zero address");
+        require(amount > 0, "Transfer amount must be greater than zero");
+        require(block.timestamp >= unlockTime[sender], "Tokens are locked");
+
+        uint256 fee = 0;
+        if (transferFeePercent > 0 && feeCollector != address(0)) {
+            fee = (amount * transferFeePercent) / 100;
+        }
+
         uint256 amountAfterFee = amount - fee;
 
-        super._transfer(sender, feeCollector, fee);
+        if (fee > 0) {
+            super._transfer(sender, feeCollector, fee);
+        }
         super._transfer(sender, recipient, amountAfterFee);
     }
 
