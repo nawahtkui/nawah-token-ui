@@ -11,21 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v3
       with:
         node-version: 18
 
+    - name: Clear npm cache (optional)
+      run: npm cache clean --force
+
     - name: Install dependencies
-      run: npm install
+      run: |
+        # تحديث النسخ الموجودة في package.json إن لزم
+        npm install || npm install --legacy-peer-deps
 
     - name: Compile contracts
       run: npm run compile
 
     - name: Run tests
       run: npm test
-
-
-
