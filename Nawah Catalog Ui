@@ -1,0 +1,92 @@
+// Nawah Historical Catalog - Multilingual React Interface
+import React, { useState } from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Sun, Moon } from 'lucide-react';
+
+const coins = [
+  {
+    id: 1,
+    name_ar: "عملة أثينا - آلهة الحكمة",
+    name_en: "Athens Coin - Goddess of Wisdom",
+    description_ar: "تحمل صورة أثينا مع رموز القوة والمعرفة والزيتون.",
+    description_en: "Features Athena with symbols of power, knowledge, and olive branch.",
+    image: "/coins/athena.jpg"
+  },
+  {
+    id: 2,
+    name_ar: "عملة روما - العدالة",
+    name_en: "Rome Coin - Justice",
+    description_ar: "تمثال العدالة ممسكًا بميزان وسيف.",
+    description_en: "Statue of Justice holding scales and sword.",
+    image: "/coins/justice.jpg"
+  },
+  {
+    id: 3,
+    name_ar: "عملة مصر - الإلهة ماعت",
+    name_en: "Egypt Coin - Goddess Maat",
+    description_ar: "تمثل التوازن والنظام والعدالة في الحضارة المصرية.",
+    description_en: "Represents balance, order, and justice in Egyptian civilization.",
+    image: "/coins/maat.jpg"
+  },
+  {
+    id: 4,
+    name_ar: "عملة بابل - عشتار",
+    name_en: "Babylon Coin - Ishtar",
+    description_ar: "إلهة الحب والحرب، مرسومة بزخارف نجومية وأجنحة.",
+    description_en: "Goddess of love and war, with starry and winged decorations.",
+    image: "/coins/ishtar.jpg"
+  },
+  {
+    id: 5,
+    name_ar: "عملة الأندلس - الحكمة",
+    name_en: "Andalus Coin - Wisdom",
+    description_ar: "نقوش عربية وزخارف هندسية تمثل الازدهار الفكري.",
+    description_en: "Arabic inscriptions and geometric patterns symbolizing intellectual flourishing.",
+    image: "/coins/andalus.jpg"
+  }
+];
+
+export default function NawahCatalog() {
+  const [lang, setLang] = useState('ar');
+  const [darkMode, setDarkMode] = useState(false);
+
+  const isArabic = lang === 'ar';
+
+  return (
+    <div className={darkMode ? 'dark bg-gray-900 text-white p-4' : 'bg-white text-black p-4'} dir={isArabic ? 'rtl' : 'ltr'}>
+      <div className="flex justify-between mb-4">
+        <div>
+          <Button onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}>
+            {isArabic ? 'English' : 'العربية'}
+          </Button>
+        </div>
+        <div>
+          <Button variant="outline" onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </Button>
+        </div>
+      </div>
+
+      <h1 className="text-2xl font-bold mb-6">
+        {isArabic ? 'كتالوج نواة التاريخي' : 'Nawah Historical Catalog'}
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {coins.map(coin => (
+          <Card key={coin.id} className="rounded-2xl shadow-lg">
+            <img src={coin.image} alt="coin" className="w-full h-48 object-cover rounded-t-2xl" />
+            <CardContent>
+              <h2 className="text-xl font-semibold mt-2">
+                {isArabic ? coin.name_ar : coin.name_en}
+              </h2>
+              <p className="text-sm mt-1">
+                {isArabic ? coin.description_ar : coin.description_en}
+              </p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
