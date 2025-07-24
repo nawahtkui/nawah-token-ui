@@ -1,0 +1,107 @@
+{
+  "title": "نموذج انضمام إلى مجتمع مشروع نواة – Nawah Token Membership Form",
+  "description": "يرجى تعبئة البيانات التالية للانضمام إلى مجتمع مشروع نواة والمساهمة في أنشطته التقنية والثقافية.",
+  "fields": [
+    {
+      "type": "short_answer",
+      "label": "الاسم الكامل",
+      "required": true
+    },
+    {
+      "type": "short_answer",
+      "label": "البلد / المدينة",
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "label": "العمر",
+      "required": true,
+      "options": [
+        "أقل من 18",
+        "18–25",
+        "26–35",
+        "36 فأكثر"
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "label": "الجنس",
+      "required": false,
+      "options": [
+        "ذكر",
+        "أنثى",
+        "أفضل عدم الإفصاح"
+      ]
+    },
+    {
+      "type": "short_answer",
+      "label": "البريد الإلكتروني",
+      "required": true
+    },
+    {
+      "type": "short_answer",
+      "label": "رقم الهاتف (اختياري)",
+      "required": false
+    },
+    {
+      "type": "short_answer",
+      "label": "رابط المحفظة الرقمية (إن وُجد)",
+      "required": false
+    },
+    {
+      "type": "checkboxes",
+      "label": "المجال الذي ترغب بالمشاركة فيه",
+      "required": true,
+      "options": [
+        "تطوير البرمجيات والعقود الذكية",
+        "التصميم والفن الرقمي",
+        "التسويق والدعاية",
+        "كتابة المحتوى والترجمة",
+        "البحث التقني / الاقتصادي",
+        "الإشراف المجتمعي والحوكمة",
+        "العلاقات والشراكات",
+        "دعم المرأة والشباب",
+        "غير ذلك"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "label": "لماذا ترغب في الانضمام إلى مشروع نواة؟",
+      "required": true
+    },
+    {
+      "type": "multiple_choice",
+      "label": "مدى التفرغ",
+      "required": true,
+      "options": [
+        "متعاون جزئيًا",
+        "متفرغ بالكامل",
+        "حسب الحاجة والمجال"
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "label": "هل لديك خبرة سابقة في مشاريع Web3 أو العملات الرقمية؟",
+      "required": true,
+      "options": [
+        "نعم",
+        "لا"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "label": "إذا كانت الإجابة نعم، يرجى ذكر نبذة",
+      "required": false
+    },
+    {
+      "type": "paragraph",
+      "label": "ملاحظات إضافية (اختياري)",
+      "required": false
+    },
+    {
+      "type": "confirmation",
+      "label": "أتعهد بأن المعلومات أعلاه صحيحة وأرغب بالانضمام إلى مجتمع نواة.",
+      "required": true
+    }
+  ]
+}
