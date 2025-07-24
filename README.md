@@ -198,7 +198,6 @@ Includes educational institutions, supportive banks, women's associations, and y
 * [Tokenomics](./Tokenomics.md)
 * [Security Policy](./SECURITY.md)
 
-* https://github.com/username/nawah-token/raw/main/forms/membership/nawah_membership_form.json
-* 
 
+https://github.com/nawahtkui/nawah-token-ui/blob/main/nawah_membership_form.json
 -
