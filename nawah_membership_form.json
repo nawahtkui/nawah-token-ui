@@ -1,107 +1,91 @@
-{
-  "title": "نموذج انضمام إلى مجتمع مشروع نواة – Nawah Token Membership Form",
-  "description": "يرجى تعبئة البيانات التالية للانضمام إلى مجتمع مشروع نواة والمساهمة في أنشطته التقنية والثقافية.",
-  "fields": [
-    {
-      "type": "short_answer",
-      "label": "الاسم الكامل",
-      "required": true
-    },
-    {
-      "type": "short_answer",
-      "label": "البلد / المدينة",
-      "required": true
-    },
-    {
-      "type": "multiple_choice",
-      "label": "العمر",
-      "required": true,
-      "options": [
-        "أقل من 18",
-        "18–25",
-        "26–35",
-        "36 فأكثر"
-      ]
-    },
-    {
-      "type": "multiple_choice",
-      "label": "الجنس",
-      "required": false,
-      "options": [
-        "ذكر",
-        "أنثى",
-        "أفضل عدم الإفصاح"
-      ]
-    },
-    {
-      "type": "short_answer",
-      "label": "البريد الإلكتروني",
-      "required": true
-    },
-    {
-      "type": "short_answer",
-      "label": "رقم الهاتف (اختياري)",
-      "required": false
-    },
-    {
-      "type": "short_answer",
-      "label": "رابط المحفظة الرقمية (إن وُجد)",
-      "required": false
-    },
-    {
-      "type": "checkboxes",
-      "label": "المجال الذي ترغب بالمشاركة فيه",
-      "required": true,
-      "options": [
-        "تطوير البرمجيات والعقود الذكية",
-        "التصميم والفن الرقمي",
-        "التسويق والدعاية",
-        "كتابة المحتوى والترجمة",
-        "البحث التقني / الاقتصادي",
-        "الإشراف المجتمعي والحوكمة",
-        "العلاقات والشراكات",
-        "دعم المرأة والشباب",
-        "غير ذلك"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "label": "لماذا ترغب في الانضمام إلى مشروع نواة؟",
-      "required": true
-    },
-    {
-      "type": "multiple_choice",
-      "label": "مدى التفرغ",
-      "required": true,
-      "options": [
-        "متعاون جزئيًا",
-        "متفرغ بالكامل",
-        "حسب الحاجة والمجال"
-      ]
-    },
-    {
-      "type": "multiple_choice",
-      "label": "هل لديك خبرة سابقة في مشاريع Web3 أو العملات الرقمية؟",
-      "required": true,
-      "options": [
-        "نعم",
-        "لا"
-      ]
-    },
-    {
-      "type": "paragraph",
-      "label": "إذا كانت الإجابة نعم، يرجى ذكر نبذة",
-      "required": false
-    },
-    {
-      "type": "paragraph",
-      "label": "ملاحظات إضافية (اختياري)",
-      "required": false
-    },
-    {
-      "type": "confirmation",
-      "label": "أتعهد بأن المعلومات أعلاه صحيحة وأرغب بالانضمام إلى مجتمع نواة.",
-      "required": true
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نموذج تسجيل نواة</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
     }
-  ]
-}
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>📋 نموذج تسجيل عضوية نواة</h2>
+<form id="membershipForm"></form>
+
+<script>
+  const formUrl = "https://raw.githubusercontent.com/nawahtkui/nawah-token-ui/main/nawah_membership_form.json";
+
+  async function loadForm() {
+    const response = await fetch(formUrl);
+    const formData = await response.json();
+    const form = document.getElementById("membershipForm");
+
+    formData.fields.forEach(field => {
+      const label = document.createElement("label");
+      label.textContent = field.label;
+
+      let input;
+      if (field.type === "textarea") {
+        input = document.createElement("textarea");
+      } else if (field.type === "select") {
+        input = document.createElement("select");
+        field.options.forEach(opt => {
+          const option = document.createElement("option");
+          option.value = opt.value;
+          option.textContent = opt.label;
+          input.appendChild(option);
+        });
+      } else {
+        input = document.createElement("input");
+        input.type = field.type || "text";
+      }
+
+      input.name = field.name;
+      input.required = field.required || false;
+
+      form.appendChild(label);
+      form.appendChild(input);
+    });
+
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
+    submitBtn.textContent = "إرسال";
+    form.appendChild(submitBtn);
+  }
+
+  loadForm();
+</script>
+
+</body>
+</html>
