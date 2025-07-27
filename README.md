@@ -199,6 +199,7 @@ Includes educational institutions, supportive banks, women's associations, and y
 - [📊 توزيع التوكنات](./Tokenomics.md)
 - [🔐 سياسة الأمان](./SECURITY.md)
 
+- [📄 نموذج عضوية نواة](https://github.com/nawahtkui/nawah-token-ui/blob/main/nawah_membership_form.json)
 
-https://github.com/nawahtkui/nawah-token-ui/blob/main/nawah_membership_form.json
+
 -
