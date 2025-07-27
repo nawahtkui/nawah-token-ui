@@ -193,7 +193,7 @@ Includes educational institutions, supportive banks, women's associations, and y
 
 ## Important Links
 
-- [📘 الورقة البيضاء بالإنجليزية](./whitepapers/Nawah_Whitepaper_EN_Final_Updated.md)
+- Nawah_Whitepaper_EN_Final_Updated.md)
 - [📙 الورقة البيضاء بالعربية](./whitepapers/Nawah_Whitepaper_AR.md)
 - [📜 وثيقة المشروع الموسعة](./docs/Nawah_Project_Overview_AR.md)
 - [📊 توزيع التوكنات](./Tokenomics.md)
