@@ -93,12 +93,12 @@ nawah-token/
 
 ## روابط مهمة
 
-* [الورقة البيضاء بالعربية](./whitepapers/Nawah_Whitepaper_AR.md)
-* [الورقة البيضاء بالإنجليزية](./whitepapers/Nawah_Whitepaper_EN.md)
-* [توزيع التوكنات](./Tokenomics.md)
-* [سياسة الأمان](./SECURITY.md)
+- [📘 الورقة البيضاء بالإنجليزية](./whitepapers/Nawah_Whitepaper_EN_Final_Updated.md)
+- [📙 الورقة البيضاء بالعربية](./whitepapers/Nawah_Whitepaper_AR.md)
+- [📜 وثيقة المشروع الموسعة](./docs/Nawah_Project_Overview_AR.md)
+- [📊 توزيع التوكنات](./Tokenomics.md)
+- [🔐 سياسة الأمان](./SECURITY.md)
 
----
 
 # Nawah Token (NWTK)
 
@@ -193,10 +193,11 @@ Includes educational institutions, supportive banks, women's associations, and y
 
 ## Important Links
 
-* [Whitepaper EN](./whitepapers/Nawah_Whitepaper_EN.md)
-* [Whitepaper AR](./whitepapers/Nawah_Whitepaper_AR.md)
-* [Tokenomics](./Tokenomics.md)
-* [Security Policy](./SECURITY.md)
+- [📘 الورقة البيضاء بالإنجليزية](./whitepapers/Nawah_Whitepaper_EN_Final_Updated.md)
+- [📙 الورقة البيضاء بالعربية](./whitepapers/Nawah_Whitepaper_AR.md)
+- [📜 وثيقة المشروع الموسعة](./docs/Nawah_Project_Overview_AR.md)
+- [📊 توزيع التوكنات](./Tokenomics.md)
+- [🔐 سياسة الأمان](./SECURITY.md)
 
 
 https://github.com/nawahtkui/nawah-token-ui/blob/main/nawah_membership_form.json
