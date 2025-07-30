@@ -1,0 +1,94 @@
+From 1234567890 Mon Jul 30 2025
+From: Nawah Token Maintainer <maintainer@nawah.org>
+Date: Mon, 30 Jul 2025 18:00:00 +0300
+Subject: Fix broken links and contract address references
+
+---
+ README.md                      | 2 +-
+ SECURITY.md                    | 2 +-
+ index.html                     | 2 +-
+ admin.html                     | 2 +-
+ nawah_membership_form.json     | 0
+ nawah_membership_form.html     | 30 ++++++++++++++++++++++++++++++
+ delete mode 100644 nawah_membership_form.json
+ create mode 100644 nawah_membership_form.html
+
+diff --git a/README.md b/README.md
+index 1a2b3c4..5d6e7f8 100644
+--- a/README.md
++++ b/README.md
+@@ -12,7 +12,7 @@
+ - [📊 توزيع التوكنات](./Tokenomics.md)
+ - [🔐 سياسة الأمان](./SECURITY.md)
+ - [📬 نموذج العضوية](./nawah_membership_form.html)
+-- Nawah_Whitepaper_EN_Final_Updated.md)
++- [📄 الورقة البيضاء بالإنجليزية](./Nawah_Whitepaper_EN_Final_Updated.md)
+
+ ## المميزات
+
+diff --git a/SECURITY.md b/SECURITY.md
+index abcd123..efgh456 100644
+--- a/SECURITY.md
++++ b/SECURITY.md
+@@ -10,7 +10,7 @@
+ - العقد الذكي الرسمي:
+ 
+-[🔗 BscScan](https://bscscan.com)
++[🔗 BscScan](https://bscscan.com/address/0x42ff25aad096dd66efc9b3bec26445e24053c83c)
+
+ - تأكد من أن جميع المعاملات تتم من خلال العنوان الرسمي فقط.
+
+diff --git a/index.html b/index.html
+index 9876543..abcde21 100644
+--- a/index.html
++++ b/index.html
+@@ -15,7 +15,7 @@
+ <script>
+   const web3 = new Web3(window.ethereum);
+-  const contractAddress = "PASTE_YOUR_CONTRACT_HERE";
++  const contractAddress = "0x42ff25aad096dd66efc9b3bec26445e24053c83c";
+   const contractABI = [/* ... */];
+ </script>
+
+diff --git a/admin.html b/admin.html
+index 34567ab..fdbca98 100644
+--- a/admin.html
++++ b/admin.html
+@@ -10,7 +10,7 @@
+ <script>
+-  const contractAddress = "PASTE_YOUR_CONTRACT_HERE";
++  const contractAddress = "0x42ff25aad096dd66efc9b3bec26445e24053c83c";
+   const contractABI = [/* ... */];
+ </script>
+
+diff --git a/nawah_membership_form.json b/nawah_membership_form.json
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/nawah_membership_form.html b/nawah_membership_form.html
+new file mode 100644
+index 0000000..7ab12cd
+--- /dev/null
++++ b/nawah_membership_form.html
+@@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>نموذج عضوية مشروع نواة</title>
+</head>
+<body>
+  <h2>نموذج عضوية Nawah Token</h2>
+  <form action="#" method="POST">
+    <label for="name">الاسم الكامل:</label><br />
+    <input type="text" id="name" name="name" required><br /><br />
+
+    <label for="email">البريد الإلكتروني:</label><br />
+    <input type="email" id="email" name="email" required><br /><br />
+
+    <label for="wallet">عنوان المحفظة (Wallet):</label><br />
+    <input type="text" id="wallet" name="wallet" required><br /><br />
+
+    <button type="submit">إرسال</button>
+  </form>
+</body>
+</html>
