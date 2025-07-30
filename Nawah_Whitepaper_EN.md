@@ -1,4 +1,6 @@
-# Tokenomics, Cultural Value & Legacy through Technology
+# Tokenomics, Cultural Value & Legacy through Technology# Tokenomics, Cultural Value & Legacy through Technology
+
+At *Nawah*, we believe that digital assets are not just tools of trade# Tokenomics, Cultural Value & Legacy through Technology
 
 At *Nawah*, we believe that digital assets are not just tools of trade — they are powerful vessels of **culture, memory, and innovation**. Our approach to token design combines **economic logic, artistic authenticity, and historical symbolism**, making each token and NFT a multidimensional expression of value.
 
@@ -65,4 +67,4 @@ By doing so, *Nawah* ensures that its digital assets are not only secure and fun
 
 🔲 Create a new branch for this commit and start a pull request.
 
-Commit changes
+

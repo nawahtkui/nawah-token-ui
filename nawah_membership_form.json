@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نموذج تسجيل نواة</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>📋 نموذج تسجيل عضوية نواة</h2>
+<form id="membershipForm"></form>
+
+<script>
+  const formUrl = "https://raw.githubusercontent.com/nawahtkui/nawah-token-ui/main/nawah_membership_form.json";
+
+  async function loadForm() {
+    const response = await fetch(formUrl);
+    const formData = await response.json();
+    const form = document.getElementById("membershipForm");
+
+    formData.fields.forEach(field => {
+      const label = document.createElement("label");
+      label.textContent = field.label;
+
+      let input;
+      if (field.type === "textarea") {
+        input = document.createElement("textarea");
+      } else if (field.type === "select") {
+        input = document.createElement("select");
+        field.options.forEach(opt => {
+          const option = document.createElement("option");
+          option.value = opt.value;
+          option.textContent = opt.label;
+          input.appendChild(option);
+        });
+      } else {
+        input = document.createElement("input");
+        input.type = field.type || "text";
+      }
+
+      input.name = field.name;
+      input.required = field.required || false;
+
+      form.appendChild(label);
+      form.appendChild(input);
+    });
+
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
+    submitBtn.textContent = "إرسال";
+    form.appendChild(submitBtn);
+  }
+
+  loadForm();
+</script>
+
+</body>
+</html>
