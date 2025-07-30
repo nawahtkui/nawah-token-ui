@@ -1,0 +1,22 @@
+From 2345678901 Mon Jul 30 2025
+From: Nawah CI Fix <maintainer@nawah.org>
+Date: Tue, 30 Jul 2025 18:50:00 +0300
+Subject: fix: use npm install instead of npm ci for CI compatibility
+
+---
+ .github/workflows/deploy.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/.github/workflows/deploy.yml b/.github/workflows/deploy.yml
+index abcdef1..1234567 100644
+--- a/.github/workflows/deploy.yml
++++ b/.github/workflows/deploy.yml
+@@ -21,7 +21,7 @@ jobs:
+     steps:
+       - uses: actions/checkout@v3
+       - uses: actions/setup-node@v3
+         with:
+           node-version: '18'
+-      - run: npm ci
++      - run: npm install
+       - run: npm run build
