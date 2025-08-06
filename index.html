@@ -5,102 +5,36 @@
   <title>Nawah Token Test Interface</title>
   <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
   <style>
-    body { font-family: Arial; padding: 20px; background: #f5f5f5; }
-    h2 { color: #333; }
-    button { margin-top: 10px; padding: 10px; }
-    input { padding: 5px; margin-top: 5px; width: 100%; }
-    .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    button { padding: 10px 20px; margin-top: 10px; }
   </style>
 </head>
 <body>
-  <h2>Nawah Token - Web3 Test Interface</h2>
-  <div class="section">
-    <p><strong>Connected Account:</strong> <span id="account"></span></p>
-    <p><strong>Balance:</strong> <span id="balance"></span> NAWAH</p>
-  </div>
-
-  <div class="section">
-    <h3>Burn Tokens</h3>
-    <input id="burnAmount" type="number" placeholder="Amount to burn" />
-    <button onclick="burnTokens()">Burn</button>
-  </div>
-
-  <div class="section">
-    <h3>Pause/Unpause Contract</h3>
-    <button onclick="pauseContract()">Pause</button>
-    <button onclick="unpauseContract()">Unpause</button>
-  </div>
-
-  <div class="section">
-    <h3>Transfer Tokens</h3>
-    <input id="transferTo" type="text" placeholder="Recipient address" />
-    <input id="transferAmount" type="number" placeholder="Amount to transfer" />
-    <button onclick="transferTokens()">Transfer</button>
-  </div>
+  <h2>Nawah Token Interface</h2>
+  <button onclick="connectWallet()">🔗 Connect Wallet</button>
+  <p id="account"></p>
 
   <script>
-    const contractAddress = "PASTE_DEPLOYED_CONTRACT_ADDRESS_HERE";
-    const contractABI = [
-      { "inputs": [], "name": "pause", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-      { "inputs": [], "name": "unpause", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-      { "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "burn", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-      { "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" },
-      { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" },
-      { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" }
-    ];
+    let web3;
+    let userAccount;
 
-    let account;
-    let nawToken;
-
-    async function connect() {
+    async function connectWallet() {
       if (window.ethereum) {
-        window.web3 = new Web3(ethereum);
-        await ethereum.request({ method: 'eth_requestAccounts' });
-        const accounts = await web3.eth.getAccounts();
-        account = accounts[0];
-        document.getElementById("account").innerText = account;
-        nawToken = new web3.eth.Contract(contractABI, contractAddress);
-        updateBalance();
+        web3 = new Web3(window.ethereum);
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          userAccount = accounts[0];
+          document.getElementById('account').textContent = `Connected account: ${userAccount}`;
+        } catch (err) {
+          alert('Wallet connection rejected.');
+        }
       } else {
-        alert("Install MetaMask to use this feature.");
+        alert('Metamask not detected!');
       }
     }
 
-    async function updateBalance() {
-      const balance = await nawToken.methods.balanceOf(account).call();
-      const decimals = await nawToken.methods.decimals().call();
-      const formatted = balance / 10 ** decimals;
-      document.getElementById("balance").innerText = formatted;
-    }
-
-    async function burnTokens() {
-      const amount = document.getElementById("burnAmount").value;
-      const decimals = await nawToken.methods.decimals().call();
-      const raw = web3.utils.toBN(amount * 10 ** decimals);
-      await nawToken.methods.burn(raw).send({ from: account });
-      updateBalance();
-    }
-
-    async function pauseContract() {
-      await nawToken.methods.pause().send({ from: account });
-      alert("Contract paused.");
-    }
-
-    async function unpauseContract() {
-      await nawToken.methods.unpause().send({ from: account });
-      alert("Contract unpaused.");
-    }
-
-    async function transferTokens() {
-      const to = document.getElementById("transferTo").value;
-      const amount = document.getElementById("transferAmount").value;
-      const decimals = await nawToken.methods.decimals().call();
-      const raw = web3.utils.toBN(amount * 10 ** decimals);
-      await nawToken.methods.transfer(to, raw).send({ from: account });
-      updateBalance();
-    }
-
-    window.onload = connect;
+    // لا يوجد أي استخدام لـ .env هنا ✅
+    // فقط استخدام Metamask كـ provider
   </script>
 </body>
 </html>
