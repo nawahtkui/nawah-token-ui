@@ -183,6 +183,10 @@ Includes educational institutions, supportive banks, women's associations, and y
 
 ---
 
+Important Notice:
+Never commit or upload your .env file containing secret keys or sensitive information to GitHub or any public repository.
+Always use the .env.example file as a reference to create your local .env file, and fill in the appropriate values that should remain private.
+
 ## Roadmap
 
 2025: Smart contract deployment and whitepaper launch
