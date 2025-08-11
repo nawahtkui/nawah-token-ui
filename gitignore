@@ -1,7 +1,7 @@
 # ============================
-# .gitignore لمشروع نواة
-# هذا الملف يتجاهل ملفات بيئة التطوير والملفات المؤقتة
-# ويحمي بيانات البيئة الحساسة (.env)
+# .gitignore — مشروع نواة
+# تجاهل ملفات بيئة التطوير، الملفات المؤقتة، والمخرجات
+# لحماية البيانات الحساسة (.env)
 # ============================
 
 # Node modules
@@ -16,10 +16,8 @@ yarn-error.log*
 
 # dotenv environment variables files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+*.env
 
 # Hardhat cache and artifacts
 cache/
@@ -33,12 +31,10 @@ build/
 coverage/
 reports/
 
-# Optional: VSCode settings
+# IDE settings
 .vscode/
+.idea/
 
-# Optional: Mac OS system files
+# OS-specific files
 .DS_Store
-
-# Windows system files
 Thumbs.db
-ehthumbs.db
