@@ -1,20 +1,17 @@
 {
-  "name": "nawah-token",
+  "name": "nawah-ui",
   "version": "1.0.0",
-  "description": "Smart contracts and deployment scripts for Nawah Token (NWTK)",
-  "main": "hardhat.config.js",
-  "scripts": {
-    "compile": "npx hardhat compile",
-    "deploy": "npx hardhat run scripts/deploy.js --network bsctestnet",
-    "test": "npx hardhat test",
-    "clean": "npx hardhat clean"
+  "private": true,
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "vaul": "^1.1.2"
+    // باقي الحزم
   },
-  "author": "Nawah Team",
-  "license": "MIT",
-  "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.1.1",
-    "dotenv": "^16.3.1",
-    "ethers": "^5.7.2",
-    "hardhat": "^2.22.1"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   }
 }
