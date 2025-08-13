@@ -21,12 +21,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
 
-      - name: Install dependencies
+      - name: Install dependencies (if UI exists)
+        if: ${{ hashFiles('ui/package.json') != '' }}
         working-directory: ui
         run: npm install
 
-      - name: Build UI (if applicable)
-        if: file-exists('ui/package.json')
+      - name: Build UI (if UI exists)
+        if: ${{ hashFiles('ui/package.json') != '' }}
         working-directory: ui
         run: npm run build
+
+      - name: Upload build as artifact
+        if: ${{ hashFiles('ui/package.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-build-${{ matrix.node-version }}
+          path: ui/build
