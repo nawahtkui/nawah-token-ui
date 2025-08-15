@@ -91,13 +91,6 @@ nawah-token/
 
 ---
 
-## روابط مهمة
-
-- [📘 الورقة البيضاء بالإنجليزية](./whitepapers/Nawah_Whitepaper_EN_Final_Updated.md)
-[عرض ملف Tokenomics على GitHub](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/Tokenomics)
-
-- [📊 توزيع التوكنات](./Tokenomics.md)
-- [🔐 سياسة الأمان](./SECURITY.md)
 
 
 # Nawah Token (NWTK)
@@ -197,13 +190,31 @@ Always use the .env.example file as a reference to create your local .env file, 
 
 ## Important Links
 
-- Nawah_Whitepaper_EN_Final_Updated.md)
-- [📙 الورقة البيضاء بالعربية](./whitepapers/Nawah_Whitepaper_AR.md)
-- [📜 وثيقة المشروع الموسعة](./docs/Nawah_Project_Overview_AR.md)
-- [📊 توزيع التوكنات](./Tokenomics.md)
+# 📦 مستودع نواة - Nawah Token UI
+
+
+## 📝 المستندات الرئيسية
+
+- 📊 [**Tokenomics**](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/Tokenomics)  
+  توزيع رموز Nawah Token وآلية التوزيع بين المشاركين والمجتمع.
+
+- 📄 [**Nawah Whitepaper (English)**](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/Nawah_Whitepaper_EN_Final_Updated.md)  
+  النسخة الإنجليزية من الورقة البيضاء، تحتوي على شرح كامل عن المشروع والتقنيات.
+
+- 🇸🇦 [**الوثيقة البيضاء - نواة (Arabic PDF)**](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/%D8%A7%D9%84%D9%88%D8%AB%D9%8A%D9%82%D8%A9%20%D8%A7%D9%84%D8%A8%D9%8A%D8%B6%D8%A7%D8%A1%20-%20%D9%86%D9%88%D8%A7%D8%A9.pdf)  
+  النسخة العربية من الورقة البيضاء.
+
+- 🤝 [**CONTRIBUTING.md**](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/CONTRIBUTING.md)  
+  دليل المساهمة في تطوير المشروع.
+
+- 📝 [**nawah_membership_form.json**](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/nawah_membership_form.json)  
+  نموذج عضوية Nawah لتسجيل الأعضاء أو جمع البيانات.
+
+- 📂 [**nawah_project_document.md**](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/nawah_project_document.md)  
+  مستند تفصيلي عن المشروع، أهدافه، الجمهور المستهدف، والميزات التقنية.
+
+
 - [🔐 سياسة الأمان](./SECURITY.md)
 
-- [📄 نموذج عضوية نواة](https://github.com/nawahtkui/nawah-token-ui/blob/main/nawah_membership_form.json)
 
 
--
