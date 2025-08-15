@@ -94,8 +94,8 @@ nawah-token/
 ## روابط مهمة
 
 - [📘 الورقة البيضاء بالإنجليزية](./whitepapers/Nawah_Whitepaper_EN_Final_Updated.md)
-- [📙 الورقة البيضاء بالعربية](./whitepapers/Nawah_Whitepaper_AR.md)
-- [📜 وثيقة المشروع الموسعة](./docs/Nawah_Project_Overview_AR.md)
+[عرض ملف Tokenomics على GitHub](https://github.com/nawahtkui/nawah-token-ui/blob/70d3140f65e7fc5413941ab21b23cc8836291f40/Tokenomics)
+
 - [📊 توزيع التوكنات](./Tokenomics.md)
 - [🔐 سياسة الأمان](./SECURITY.md)
 
